@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="hitler.css">
+    </head>
+    <body onload="findTime();">
+        <p>
+            <div class=AlignCentre>
+                <div class=subtext>It has been roughly</div><br>
+                <div class=time id=time></div><br>
+                <div class=subtext>since Hitler has died.</div>
+            </div>
+        <p>
+        <div class=small>Made with regret by <b>Jayden Manton</b></div>
+    </body>
+    <script>
+        function findTime() {
+            setInterval(findTime, 50);
+            var d = new Date();
+            //778593600000
+            var milli = d.getTime() + 777168000000;
+            seconds = Math.floor((milli / 1000) % 60),
+            minutes = Math.floor((milli / (1000 * 60)) % 60),
+            hours = Math.floor((milli / (1000 * 60 * 60)) % 24);
+            days = Math.floor((milli / (1000 * 60 * 60 * 24)) % 7);
+            weeks = Math.floor((milli / (1000 * 60 * 60 * 24 * 7)) % 52.1429);
+            years = Math.floor(milli / (1000 * 60 * 60 * 24 * 7 * 52.1429));
+            document.getElementById('time').innerHTML = years + " years, " + weeks + " weeks, " +  days + " days, " +  hours + " hours, " +  minutes + " minutes and " +  seconds + " seconds";
+        }
+    </script>
+</html>
